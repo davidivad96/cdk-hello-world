@@ -1,6 +1,7 @@
 import * as cdk from '@aws-cdk/core';
 import * as lambda from '@aws-cdk/aws-lambda';
 import { NodejsFunction } from '@aws-cdk/aws-lambda-nodejs';
+import * as apigw from '@aws-cdk/aws-apigateway';
 import * as path from 'path';
 
 export class CdkHelloWorldStack extends cdk.Stack {
@@ -16,6 +17,11 @@ export class CdkHelloWorldStack extends cdk.Stack {
         minify: true,
         externalModules: ['aws-sdk'],
       },
+    });
+
+    // defines an API Gateway REST API resource backed by our "hello" function
+    new apigw.LambdaRestApi(this, 'Endpoint', {
+      handler: hello,
     });
   }
 }
