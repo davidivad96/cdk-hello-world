@@ -1,2 +1,2 @@
-# cdk-hello-world
+# AWS CDK Hello World
 Learning AWS Cloud Development Kit
