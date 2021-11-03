@@ -16,7 +16,8 @@
     "@aws-cdk/aws-lambda": "^1.130.0",
     "@aws-cdk/aws-lambda-nodejs": "^1.130.0",
     "@aws-cdk/core": "1.130.0",
-    "aws-sdk": "^2.1020.0"
+    "aws-sdk": "^2.1020.0",
+    "cdk-dynamo-table-viewer": "^0.1.134"
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.130.0",
