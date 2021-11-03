@@ -3,6 +3,7 @@ import * as lambda from '@aws-cdk/aws-lambda';
 import { NodejsFunction } from '@aws-cdk/aws-lambda-nodejs';
 import * as apigw from '@aws-cdk/aws-apigateway';
 import * as path from 'path';
+import { HitCounter } from './hitcounter';
 
 export class CdkHelloWorldStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
@@ -19,9 +20,14 @@ export class CdkHelloWorldStack extends cdk.Stack {
       },
     });
 
+    // defines another AWS Lambda resource
+    const helloWithCounter = new HitCounter(this, 'HelloHitCounter', {
+      downstream: hello,
+    });
+
     // defines an API Gateway REST API resource backed by our "hello" function
     new apigw.LambdaRestApi(this, 'Endpoint', {
-      handler: hello,
+      handler: helloWithCounter.handler,
     });
   }
 }
