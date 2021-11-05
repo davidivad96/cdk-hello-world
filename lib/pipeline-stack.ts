@@ -1,5 +1,6 @@
 import * as cdk from '@aws-cdk/core';
 import { CodePipeline, CodeBuildStep, CodePipelineSource } from '@aws-cdk/pipelines';
+import { WorkshopPipelineStage } from './pipeline-stage';
 
 export class WorkshopPipelineStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -17,5 +18,8 @@ export class WorkshopPipelineStack extends cdk.Stack {
         commands: ['npm ci', 'npm run build', 'npx cdk synth'],
       }),
     });
+
+    const deploy = new WorkshopPipelineStage(this, 'Deploy');
+    const deployStage = pipeline.addStage(deploy);
   }
 }
