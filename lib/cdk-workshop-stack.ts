@@ -6,8 +6,8 @@ import { TableViewer } from 'cdk-dynamo-table-viewer';
 import * as path from 'path';
 import { HitCounter } from './hitcounter';
 
-export class CdkHelloWorldStack extends cdk.Stack {
-  constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
+export class CdkWorkshopStack extends cdk.Stack {
+  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
     // defines an AWS Lambda resource
