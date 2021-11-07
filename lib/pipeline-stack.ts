@@ -17,6 +17,7 @@ export class WorkshopPipelineStack extends cdk.Stack {
         installCommands: ['npm install -g aws-cdk'],
         commands: ['npm ci', 'npm run build', 'npx cdk synth'],
       }),
+      dockerEnabledForSynth: true,
     });
 
     const deploy = new WorkshopPipelineStage(this, 'Deploy');
