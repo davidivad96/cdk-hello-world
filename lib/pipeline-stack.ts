@@ -12,7 +12,7 @@ export class WorkshopPipelineStack extends cdk.Stack {
       synth: new CodeBuildStep('SynthStep', {
         input: CodePipelineSource.connection('davidivad96/cdk-hello-world', 'main', {
           connectionArn:
-            'arn:aws:codestar-connections:eu-west-1:682507345650:connection/b0471c66-69b3-4dbb-87da-4a74a296bd93',
+            'arn:aws:codestar-connections:eu-west-1:682507345650:connection/9c9b7e95-a89e-46a3-ab83-e3c8a1411957',
         }),
         installCommands: ['npm install -g aws-cdk'],
         commands: ['npm ci', 'npm run build', 'npx cdk synth'],
